@@ -1,0 +1,170 @@
+#  CHROME NODE REGISTER:
+#  java -Dwebdriver.chrome.driver="/Users/techproed/Documents/selenium libraries/drivers/chromedriver" -jar selenium-server-standalone-3.141.59.jar -role node -hub http://192.168.0.14:4444/grid/register -port 4445
+#
+#  CHANGE 3 DATA:
+#  chrome        -> gecko
+#  chromedriver  -> geckodriver
+#  4445          -> 4446
+#
+#  FIREFOX NODE REGISTER
+#  java -Dwebdriver.gecko.driver="/Users/techproed/Documents/selenium libraries/drivers/geckodriver" -jar selenium-server-standalone-3.141.59.jar -role node -hub http://192.168.0.14:4444/grid/register -port 4446
+  @grid_firefox
+  Scenario: verify_title_on_firefox
+    Given user is on the application_login page with firefox
+    Then verify the title includes Resortsline
+
+#    NOTES:
+#  1. Register HUB
+#  -Change Directory and RUn code: java -jar selenium-server-standalone-3.141.59.jar -role hub
+
+#  2. Register node for chrome:
+#  -Change Directory and run code:
+#  java -Dwebdriver.chrome.driver="/Users/techproed/Documents/selenium libraries/drivers/chromedriver" -jar selenium-server-standalone-3.141.59.jar -role node -hub http://192.168.0.14:4444/grid/register -port 4445
+
+#  3. Register node for firefox:
+#  -Change Directory and run code:
+#  java -Dwebdriver.gecko.driver="/Users/techproed/Documents/selenium libraries/drivers/geckodriver" -jar selenium-server-standalone-3.141.59.jar -role node -hub http://192.168.0.14:4444/grid/register -port 4446
+
+#  4. Write your feature file and step defs
+#    @grid_firefox
+#  Scenario: verify_title_on_firefox
+#    Given user is on the application_login page with firefox
+#    Then verify the title includes Resortsline
+#     @Given("user is on the application_login page with firefox")
+#    public void user_is_on_the_application_login_page_with_firefox() {
+#    }
+
+#  5. Run tests to see if your test run on chrome and firefox.Feature:
+
+#######  CROSS BROWSER TEST (MULTI BROWSER TEST)   #######
+#  WHAT ? : Test execution in DIFFERENT BROWSER is called "CROSS BROWSER TESTING"
+#  WHY ?  : To make sure the application(functionalities) works as expected across the browsers
+
+
+#  INTERVIEW QUESTIONS?
+#  What is Selenium Grid?
+#  Selenium grid is used for remote test execution. We can also do parallel testing with grid.
+#  What is Desired Capabilities?
+#  DesiredCapabilities is used for adding different properties for browsers such as name, version, etc.
+#  What is Remote Driver? Why Do you use it?
+#  Remote driver is used to connect a remote platform. I used Remote Driver to connect the nodes when I use Selenium grid
+#  driver= new RemoteWebDriver(new URL(hubURL),options);
+#  What is the benefit of Selenium Grid?
+#  We can use selenium grid with parallel testing. Then it saves time. We can use grid with cucumber or testng framework.
+#  What is Hub?
+#  Hub is a server that drives the parallel test execution on different machines
+#  What is Node?
+#  Node is a virtual machine that is registered to a hub. There can be multiple nodes that can work with selenium grid
+#  How do you run tests on Selenium Grid?
+#  We register Hub and use it as a server. Then I register nodes to the Hub. Then I create my test cases. And then run the test.
+#  How do you configure test cases on selenium grid?
+#  I use Desired capabilities for set up
+#  I add browser type and platforms then create my remote driver for execution
+#  What are the challenges in multi browser testing ?
+#  Set up. We need to create different drivers for each browser for cross browser testing.
+#  The maintenance. We need to keep our drivers and browsers up to date. Our drivers and browser also should be compatable. Otherwise we might get exception.
+#  Test execution time might be more because we need to test on multiple browser. It will take more time to compatible.
+#  How do you keep your driver up to date?
+#  The best code is WORKING code. So if the driver work then keep using it. If there is some exception related to driver, then update it from the company repository.
+#  ####################### ################### #################
+JENKINS
+*****WHAT IS JENKINS?
+-Jenkins is an CONTINUOUS INTEGRATION(continues deployment) tool.
+-CI(Continuous integration) / CD(Continuous deployment) tool.
+*****How do you use Jenkins as tester?
+-I use jenkins for running especially my smoke test.
+-My team get the reports every morning at 7:30 am.
+-If any failure in the reports, then I communicate with the the team.
+-Is your smoke test failed?
+    - I remember it failed a few times before.
+-How often it fails?
+    - around once every 2 months (maybe around once a month)
+-What can be the reason for smoke test to fail.
+    - Server might be down.
+    - URL might not be accesable(chaning the testing url)
+    - There might be an update on the existing code.(changing the login button, then locator changes. Or removing the password field, then password locator will fail)
+    - There might be a side affect of a new code.(While updating the dropdown values, making the dropdown not editable.(no longer dropdown options are visible))
+
+*****WHY DO YOU USE JENKINS?
+-We use Jenkins for continuous integration. Jenkins makes the deployment process easier. To facilitate the deployment process, i use jenkins
+
+*****Prerequisites
+- installation
+- create an account
+- jenkins.war
+
+*****How to login Jenkins?
+1. Open terminal
+2. cd jenkins folder
+    - cd Documents
+    - cd jenkins
+Now we are in the jenkins folder
+3. Run the command:
+java -jar jenkins.war
+
+4. Go to the host url:
+http://localhost:8080/
+
+*****How to configure Jenkins?
+-Devops Engineers is responsible for jenkins configurations.
+1. Click on Manage Jenkins
+2. Click on Global Tool Configuration
+3. Click on JDK installations
+-Click on Install Automatically checkbox
+-Click on Please enter your username/password
+-Enter your oracle credentials(if you forgot or don't have, create an account)
+-Version : 9.0.4
+-Check I agree to the Java SE Development Kit License Agreement
+4. MAVEN INSTALLATION
+- Click Add Maven at the bottom of the page
+- Click on Install automatically checkbox
+- Version : 3.8.3
+5. Save Apply
+ DONE WITH GLOBAL CONFIGURATION. SO FAR DEVOPS ENGINEERS DOES THE GLOBAL SETTING AND CONFIGURATIONS
+***
+*****How do you create Jenkins Jobs?
+1. Click on New Item
+2. Name : my_smoke_test_suite
+3. Click on Freestyle project and OK
+4. Click on GitHub project checkbox and give your project path
+https://github.com/B-35-36/cucumber-framework.git
+5. Source Code Management
+    - click on Git radio button
+    - https://github.com/B-35-36/cucumber-framework.git
+    - change */master as */main
+6. Build Triggers
+   -Build periodically -> we can add specific time to run jenkins automatically
+   - run every morning at 07:30 am,run smoke test
+
+7. Build
+    -Invoke top-level Maven targets
+    -Goals: clean install
+    -POM  : pom.xml
+    -We add custom configuration, such as email notification,junit reports,... after test is complete.
+    -Click on add post build action
+    -Email notifications: Enter your email
+
+*****Email Set Up?
+-When you are on Dashboard:
+-Click on Manage Jenkins
+-Configure System
+-Search for           : E-mail Notification
+-SMTP server for gmail: smtp.gmail.com
+-SMTP server for yahoo: smtp-mail.outlook.com
+-Click on Advanced:
+-Use SMTP Authentication
+    -username: your email
+    -password: .....
+-Click on Use SSL
+-Click on SMTP Port: 465
+-Test configuration by sending test e-mail: enter your email
+
+    #######################################################
+*****How to run Jenkins jobs(How do you run tests on jenkins?)?
+1. CLick on Build Now button
+
+*****What is HVD?
+-Virtual Devices : Jenkins can be run on virtual devices such as AWS.
+
+
+
