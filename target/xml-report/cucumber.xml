@@ -1,8 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="8.662">
-    <testcase classname="read_the_hotel_information_from_the_database" name="TC01_Read_hotel_reservation_information" time="7.979">
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="3" time="23.011">
+    <testcase classname="read_the_hotel_reservation_information_from_the_database" name="TC01_Read_hotel_room_information" time="11.251">
         <system-out>
             <![CDATA[Given user connects to the database.........................................passed
+And user gets the "Price" from "tHOTELROOM" table...........................passed
+And user reads all of the "Price" column data...............................passed
+Then close the connection...................................................passed
+]]>
+        </system-out>
+    </testcase>
+    <testcase classname="read_the_hotel_reservation_information_from_the_database" name="TC02_Read_hotel_information" time="5.718">
+        <system-out>
+            <![CDATA[Given user connects to the database.........................................passed
+And user gets the "Name" from "tHOTEL" table................................passed
+And user reads all of the "Name" column data................................passed
+Then close the connection...................................................passed
+]]>
+        </system-out>
+    </testcase>
+    <testcase classname="read_the_hotel_reservation_information_from_the_database" name="TC03_Read_hotel_address_information" time="5.42">
+        <system-out>
+            <![CDATA[Given user connects to the database.........................................passed
+And user gets the "Address" from "tHOTEL" table.............................passed
+And user reads all of the "Address" column data.............................passed
 ]]>
         </system-out>
     </testcase>

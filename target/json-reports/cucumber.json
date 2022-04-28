@@ -1,13 +1,13 @@
 [
   {
-    "line": 1,
+    "line": 2,
     "elements": [
       {
-        "start_timestamp": "2021-11-10T19:27:26.129Z",
+        "start_timestamp": "2021-12-14T21:26:51.877Z",
         "before": [
           {
             "result": {
-              "duration": 3976100,
+              "duration": 7999300,
               "status": "passed"
             },
             "match": {
@@ -16,13 +16,13 @@
           }
         ],
         "line": 4,
-        "name": "TC01_Read_hotel_reservation_information",
+        "name": "TC01_Read_hotel_room_information",
         "description": "",
-        "id": "read-the-hotel-information-from-the-database;tc01-read-hotel-reservation-information",
+        "id": "read-the-hotel-reservation-information-from-the-database;tc01-read-hotel-room-information",
         "after": [
           {
             "result": {
-              "duration": 5030518200,
+              "duration": 7626376400,
               "status": "passed"
             },
             "match": {
@@ -35,29 +35,289 @@
         "steps": [
           {
             "result": {
-              "duration": 2698707600,
+              "duration": 2245245200,
               "status": "passed"
             },
-            "line": 6,
+            "line": 5,
             "name": "user connects to the database",
             "match": {
               "location": "stepdefinitions.database_step_defs.Read_Step_Definitions.user_connects_to_the_database()"
             },
             "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 322034300,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "user gets the \"Price\" from \"tHOTELROOM\" table",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Price\"",
+                  "offset": 14
+                },
+                {
+                  "val": "\"tHOTELROOM\"",
+                  "offset": 27
+                }
+              ],
+              "location": "stepdefinitions.database_step_defs.Read_Step_Definitions.user_gets_the_from_table(java.lang.String,java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 451450100,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "user reads all of the \"Price\" column data",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Price\"",
+                  "offset": 22
+                }
+              ],
+              "location": "stepdefinitions.database_step_defs.Read_Step_Definitions.user_reads_all_of_the_column_data(java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 236715800,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "close the connection",
+            "match": {
+              "location": "stepdefinitions.database_step_defs.Read_Step_Definitions.close_the_connection()"
+            },
+            "keyword": "Then "
           }
         ],
         "tags": [
           {
             "name": "@db_read"
+          },
+          {
+            "name": "@db_hotel_room_price"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2021-12-14T21:27:03.149Z",
+        "before": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "stepdefinitions.Hooks.setUp()"
+            }
+          }
+        ],
+        "line": 10,
+        "name": "TC02_Read_hotel_information",
+        "description": "",
+        "id": "read-the-hotel-reservation-information-from-the-database;tc02-read-hotel-information",
+        "after": [
+          {
+            "result": {
+              "duration": 2981587200,
+              "status": "passed"
+            },
+            "match": {
+              "location": "stepdefinitions.Hooks.tearDown(io.cucumber.java.Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1487018300,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "user connects to the database",
+            "match": {
+              "location": "stepdefinitions.database_step_defs.Read_Step_Definitions.user_connects_to_the_database()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 237355800,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "user gets the \"Name\" from \"tHOTEL\" table",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Name\"",
+                  "offset": 14
+                },
+                {
+                  "val": "\"tHOTEL\"",
+                  "offset": 26
+                }
+              ],
+              "location": "stepdefinitions.database_step_defs.Read_Step_Definitions.user_gets_the_from_table(java.lang.String,java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 763208000,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "user reads all of the \"Name\" column data",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Name\"",
+                  "offset": 22
+                }
+              ],
+              "location": "stepdefinitions.database_step_defs.Read_Step_Definitions.user_reads_all_of_the_column_data(java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 234903900,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "close the connection",
+            "match": {
+              "location": "stepdefinitions.database_step_defs.Read_Step_Definitions.close_the_connection()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@db_read"
+          },
+          {
+            "name": "@db_hotel_name"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2021-12-14T21:27:08.904Z",
+        "before": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "stepdefinitions.Hooks.setUp()"
+            }
+          }
+        ],
+        "line": 16,
+        "name": "TC03_Read_hotel_address_information",
+        "description": "",
+        "id": "read-the-hotel-reservation-information-from-the-database;tc03-read-hotel-address-information",
+        "after": [
+          {
+            "result": {
+              "duration": 2986224500,
+              "status": "passed"
+            },
+            "match": {
+              "location": "stepdefinitions.Hooks.tearDown(io.cucumber.java.Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1421452500,
+              "status": "passed"
+            },
+            "line": 17,
+            "name": "user connects to the database",
+            "match": {
+              "location": "stepdefinitions.database_step_defs.Read_Step_Definitions.user_connects_to_the_database()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 233050800,
+              "status": "passed"
+            },
+            "line": 18,
+            "name": "user gets the \"Address\" from \"tHOTEL\" table",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Address\"",
+                  "offset": 14
+                },
+                {
+                  "val": "\"tHOTEL\"",
+                  "offset": 29
+                }
+              ],
+              "location": "stepdefinitions.database_step_defs.Read_Step_Definitions.user_gets_the_from_table(java.lang.String,java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 761732700,
+              "status": "passed"
+            },
+            "line": 19,
+            "name": "user reads all of the \"Address\" column data",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Address\"",
+                  "offset": 22
+                }
+              ],
+              "location": "stepdefinitions.database_step_defs.Read_Step_Definitions.user_reads_all_of_the_column_data(java.lang.String)"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@db_read"
+          },
+          {
+            "name": "@db_hotel_address"
           }
         ]
       }
     ],
-    "name": "read_the_hotel_information_from_the_database",
+    "name": "read_the_hotel_reservation_information_from_the_database",
     "description": "",
-    "id": "read-the-hotel-information-from-the-database",
+    "id": "read-the-hotel-reservation-information-from-the-database",
     "keyword": "Feature",
     "uri": "file:src/test/resources/features/database_features/read.feature",
-    "tags": []
+    "tags": [
+      {
+        "name": "@db_read",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      }
+    ]
   }
 ]

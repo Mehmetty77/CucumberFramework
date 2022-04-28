@@ -20,7 +20,7 @@ public class Selenium_Grid_Step_Defs {
     public void user_is_on_the_application_login_page_with_chrome() throws MalformedURLException {
 //       1. Create Desired Capabilities object
         DesiredCapabilities cap=new DesiredCapabilities();
-//       2. Use cap ro assign browser name and operation system
+//       2. Use cap to assign browser name and operation system
         cap.setBrowserName("chrome");
 //        cap.setPlatform(Platform.MAC); //For mac
 //        cap.setPlatform(Platform.WINDOWS); //for windows
