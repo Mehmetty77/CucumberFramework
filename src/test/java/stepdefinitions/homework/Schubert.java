@@ -2,6 +2,7 @@ package stepdefinitions.homework;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -61,6 +62,9 @@ public class Schubert {
         System.out.println(Driver.getDriver().getTitle());
         System.out.println(Driver.getDriver().getWindowHandle());
         Driver.getDriver().manage().window().maximize();
+        String popUpText=Driver.getDriver().findElement(By.tagName("body")).getText();
+
+        System.out.println(popUpText);
 //    }
     }
 }
